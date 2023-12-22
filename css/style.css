@@ -1,1 +1,100 @@
+html {
+  height: 100%;
+  width: 100%;
+}
 
+/* Общие стили */
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Стили для ПК и устройств с шириной экрана больше 1024px */
+@media only screen and (min-width: 1025px) {
+  #contentContainer {
+    /* ... */
+  }
+
+  #homeButton {
+    /* ... */
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  #contentContainer {
+    width: 110%; /* Пример: установка ширины в 80% от ширины экрана */
+    margin: 0 auto; /* Центрирование контейнера */
+  }
+
+  /* Добавьте аналогичные правила для других элементов внутри #contentContainer, если необходимо */
+}
+
+/* Стили для узких экранов (менее 600px) */
+@media only screen and (max-width: 600px) {
+  #contentContainer {
+    /* ... */
+  }
+
+  #homeButton {
+    /* ... */
+  }
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #333;
+  padding: 15px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  display: none; /* Начально скрыто на больших экранах */
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media only screen and (max-width: 767px) {
+  .menu-icon {
+    display: block; /* Показываем иконку на маленьких экранах */
+  }
+
+  .nav-links {
+    display: none; /* Скрываем обычные кнопки на маленьких экранах */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #333;
+    width: 100%;
+  }
+
+  .nav-links a {
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid white;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
