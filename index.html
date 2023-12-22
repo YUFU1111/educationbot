@@ -1,0 +1,472 @@
+<!DOCTYPE html><html><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Education Edition</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a; 
+    }
+
+
+    footer {
+      background: linear-gradient(to right, #FF6B6B, #FF8E53);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+    }
+
+    header {
+      background-image: url('images/discord-banner-gif-5.gif');
+      background-size: cover;
+      background-position: center;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 48px;
+      font-weight: bold;
+      color: #ffcc00;
+      text-shadow: 2px 2px #000;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background-color: #333;
+    }
+
+    nav ul li a:hover {
+      background-color: #ffcc00;
+      color: #333;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #00bfff;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #444;
+      font-weight: bold; /* Усиление жирности */
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    .bot-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .bot-info img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 4px solid #00bfff;
+    }
+
+    .update-section {
+      margin-bottom: 40px;
+    }
+
+    .update-section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #ffcc00;
+    }
+
+    .update-section ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    .team-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .team-member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      border: 4px solid #00bfff;
+      background-image: linear-gradient(to right, #ffcc00, #cc3399);
+    }
+
+    .function-category {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      width: 150%;
+    }
+
+    .function-card {
+      flex-basis: calc(25% - 20px);
+      background-image: linear-gradient(to right, #cc0099, #660066);
+      padding: 20px;
+      border-radius: 15px;
+      color: #313338 !important;
+      margin-bottom: 20px;
+      width: 150%;
+    }
+
+    .function-card h3 {
+      font-size: 24px;
+      margin-top: 0;
+      margin-bottom: 10px;
+      width: 150%;
+    }
+
+    .function-card p {
+      margin: 0;
+      width: 150%;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .team-member:nth-child(1) p {
+      background: linear-gradient(to right, #ff6666, #ff99cc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .team-member:nth-child(1) p {
+      color: #FF6666;
+      font-weight: bold;
+    }
+
+    .team-member:nth-child(2) p {
+      color: #FF6666;
+      font-weight: bold;
+    }
+
+    .team-member:nth-child(3) p {
+      color: #FFA500;
+      font-weight: bold;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .footer {
+      background-color: #FFD700;
+      color: #fff;
+      padding: 50px;
+      text-align: center;
+      left: 0;
+      bottom: 0;
+      width: 150%;
+    }
+
+    #functions h3,
+    #functions p {
+      color: white;
+    }
+
+    #about {
+      background-color: #313338; /* Цвет фона для раздела 'Информация' */
+      padding: 20px;
+      border-radius: 10px;
+      color: #fff; /* Цвет текста */
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1; /* Помещаем canvas под основное содержимое */
+    }
+
+    main {
+      padding: 40px;
+      border-radius: 10px;
+      position: relative; /* Добавим позицию для корректного отображения наложенных элементов */
+      z-index: 1; /* Устанавливаем поверх canvas */
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background-color: #333; /* Вот здесь */
+    }
+
+    nav ul li a:hover {
+      background-color: #ffcc00;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 15px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #333;
+      color: white;
+    }
+    }
+    
+   </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const canvas = document.createElement("canvas");
+      document.body.appendChild(canvas);
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const particles = [];
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.radius = Math.random() * 1 + 0.5;
+          this.color = "rgba(255, 255, 255, 0.2)";
+          this.speedX = Math.random() * 1 - 0.5;
+          this.speedY = Math.random() * 2 + 1;
+        }
+
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+
+          if (this.y > canvas.height || this.y < 0) {
+            this.y = Math.random() * canvas.height;
+            this.x = Math.random() * canvas.width;
+          }
+
+          if (this.radius > 0.2) this.radius -= 0.1;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.fill();
+        }
+
+        drawLine(otherParticle) {
+          ctx.beginPath();
+          ctx.moveTo(this.x, this.y);
+          ctx.lineTo(otherParticle.x, otherParticle.y);
+          ctx.strokeStyle = this.color;
+          ctx.stroke();
+          ctx.closePath();
+        }
+      }
+
+      function createParticles() {
+        const particleCount = 100;
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function connectParticles() {
+        for (let a = 0; a < particles.length; a++) {
+          for (let b = a; b < particles.length; b++) {
+            const distance = Math.sqrt(
+              Math.pow(particles[a].x - particles[b].x, 2) +
+              Math.pow(particles[a].y - particles[b].y, 2)
+            );
+
+            if (distance < 100) {
+              particles[a].drawLine(particles[b]);
+            }
+          }
+        }
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+        }
+
+        connectParticles();
+
+        requestAnimationFrame(animateParticles);
+      }
+
+      window.addEventListener("resize", function () {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+
+      createParticles();
+      animateParticles();
+
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Education Edition</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">Информация</a></li>
+        <li><a href="#projects">Про бота</a></li>
+        <li><a href="#updates">Обновления</a></li>
+        <li><a href="#team">Команда разработчиков</a></li>
+        <li><a href="#contact">Дискорд</a></li>
+        <li><a href="help.html">Помощь</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section id="about">
+      <h2>Информация</h2>
+      <div class="bot-info">
+        <p style="color: #fff; background-image: linear-gradient(to right, #ffcc00, #ff6f00); padding: 10px; border-radius: 5px; font-weight: bold;">
+          🌳Education Edition🌳 - Это многофункциональный бот для вашего Discord сервера. Он предлагает множество полезных команд и функций, которые помогут вам управлять и организовывать свое сообщество.
+        </p>
+        <p style="color: #fff; background-image: linear-gradient(to right, #ffcc00, #ff6f00); padding: 10px; border-radius: 5px; font-weight: bold;">
+          Посетите наш дискорд сервер <a href="https://discord.gg/RPKhJG8jnh" style="color: #ffcc00; font-weight: bold;">BDFDC</a> там ты можешь научится программировать.
+        </p>
+      </div>
+    </section>
+    
+    <section id="projects">
+      <h2></h2>
+      <div class="bot-info">
+        <p style="color: #ffcc66, #ff99cc; font-weight: bold;">Подробная информация про бота.</p>
+      </div>
+    </section>
+    
+    <section id="functions" class="function-category">
+      <div class="function-card">
+        <h3>Настройка Экономики</h3>
+        <p>Добавьте экономическую систему на ваш сервер </p><p>и настройте ее параметры для управления внутренней </p><p>валютой и ролевой экономикой.</p>
+      </div>
+      <div class="function-card" style="background-image: linear-gradient(to right, #6600ff, #cc3399);">
+        <h3>Удобная модерация</h3>
+        <p>Облегчите задачи модерации с помощью команд и </p><p>функций, которые помогут вам контролировать и </p><p>управлять вашим сервером.</p>
+      </div>
+      <div class="function-card" style="background-image: linear-gradient(to right, #0099ff, #000066);">
+        <h3>Удобная настройка бота</h3>
+        <p>Настройте бота под свои потребности с помощью </p><p>различных опций и параметров, чтобы он работал </p><p>идеально для вашего сообщества.</p>
+      </div>
+      <div class="function-card" style="background-image: linear-gradient(to right, #ff9900, #ffff00);">
+        <h3>Добавь своего бота</h3>
+        <p>На сервере BDFDC вы можете добавить своего </p><p>бота во благо другим, так-же там можно рекламировать </p><p>своих ботов. Удобная система добавление бота, вы </p><p>можете отслеживать статус вашего бота.</p>
+      </div>
+      <div class="function-card" style="background-image: linear-gradient(to right, #ff0000, #ff9933);">
+        <h3>Быстрый ответ поддержки</h3>
+        <p>Получайте оперативные ответы на свои вопросы </p><p>и проблемы с помощью нашей команды поддержки, готовой </p><p>помочь вам 24/7.</p>
+      </div>
+      <div class="function-card" style="background-image: linear-gradient(to right, #33ccff, #3399ff);">
+        <h3>Частые обновления</h3>
+        <p>Бот обновляется часто, выходят интересные </p><p>обновление которые улучшают работу бота для вашего сервера.</p>
+      </div>
+    </section>
+    
+    <section id="updates" class="update-section">
+      <h2>Последнее обновление</h2>
+      <ul>
+        <li style="color: #444;">Текущая версия бота: 3.4.9</li>
+        <li style="color: #444;">Добавлено: 🆕 Бот полностью переведен на слеш команды.</li>
+        <li style="color: #444;">Добавлено: ✨ Добавлена возможность покупать кейсы в боте.</li>
+        <li style="color: #444;">Обновлено: ��&nbsp;️ Магазин кейсов.</li>
+        <li style="color: #444;">Добавлено: 💎 Новая система покупки кейсов.</li>
+        <li style="color: #444;">Обновлена: 🎭 Команда /bal которая показывает баланс.</li>
+      </ul>
+    </section>
+    
+    <section id="team" class="team-section">
+      <h2 style="background-image: linear-gradient(to right, #ffcc00, #ff6f00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;">Команда разработчиков</h2>
+      <div class="team-member">
+        <img src="images/8b4cd41660811c7e71c0af8e3b3ca638.png" alt="Member 1">
+        <p>yufu_dev - �&nbsp;азработчик</p>
+      </div>
+      <div class="team-member">
+        <img src="images/328376db39a600825824e1f0d7b7fa3b.png" alt="Member 2">
+        <p>ixhiomi - Дизайнер бота</p>
+      </div>
+    </section>
+    
+    <section id="contact">
+      <h2>Контакты</h2>
+      <p style="color: #000;">Свяжитесь с нами для поддержки или дополнительной информации:</p>
+      <a href="https://discord.gg/PMQ4Ccr424" style="display: inline-block; padding: 10px 20px; background-color: #7289da; color: #fff; text-decoration: none; border-radius: 5px;">Поддержка Discord</a>
+    </section>
+
+    
+  <footer>
+    © 2023 Education Edition
+  </footer>
+    
+</main><canvas width="1900" height="900"></canvas></body></html>

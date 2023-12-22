@@ -1,0 +1,488 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Помощь</title>
+  <style>
+
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a; 
+    }
+
+
+
+    header {
+      background-image: url('images/discord-banner-gif-5.gif');
+      background-size: cover;
+      background-position: center;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 48px;
+      font-weight: bold;
+      color: #ffcc00;
+      text-shadow: 2px 2px #000;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background-color: #333;
+    }
+
+    nav ul li a:hover {
+      background-color: #ffcc00;
+      color: #333;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #00bfff;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #444;
+      font-weight: bold; /* Усиление жирности */
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    .bot-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .bot-info img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 4px solid #00bfff;
+    }
+
+    .update-section {
+      margin-bottom: 40px;
+    }
+
+    .update-section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #ffcc00;
+    }
+
+    .update-section ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    .team-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .team-member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      border: 4px solid #00bfff;
+      background-image: linear-gradient(to right, #ffcc00, #cc3399);
+    }
+
+    .function-category {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .function-card {
+      flex-basis: calc(25% - 20px);
+      background-image: linear-gradient(to right, #cc0099, #660066);
+      padding: 20px;
+      border-radius: 15px;
+      color: #313338 !important;
+      margin-bottom: 20px;
+    }
+
+    .function-card h3 {
+      font-size: 24px;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .function-card p {
+      margin: 0;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .team-member:nth-child(1) p {
+      background: linear-gradient(to right, #ff6666, #ff99cc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .team-member:nth-child(1) p {
+      color: #FF6666;
+      font-weight: bold;
+    }
+
+    .team-member:nth-child(2) p {
+      color: #FF6666;
+      font-weight: bold;
+    }
+
+    .team-member:nth-child(3) p {
+      color: #FFA500;
+      font-weight: bold;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+
+
+    #functions h3,
+    #functions p {
+      color: white;
+    }
+
+    #about {
+      background-color: #313338; /* Цвет фона для раздела 'Информация' */
+      padding: 20px;
+      border-radius: 10px;
+      color: #fff; /* Цвет текста */
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1; /* Помещаем canvas под основное содержимое */
+    }
+
+    main {
+      padding: 40px;
+      border-radius: 10px;
+      position: relative; /* Добавим позицию для корректного отображения наложенных элементов */
+      z-index: 1; /* Устанавливаем поверх canvas */
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background-color: #333; /* Вот здесь */
+    }
+
+    nav ul li a:hover {
+      background-color: #ffcc00;
+      color: #333;
+    }
+
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #fff;
+      animation: fadeIn ease 2s;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h1, h2 {
+      font-family: 'Cursive', sans-serif;
+      color: #ffcc00;
+      text-shadow: 2px 2px #000;
+    }
+
+    p {
+      font-family: 'Times New Roman', sans-serif;
+      line-height: 1.6;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #00bfff;
+      animation: scaleIn ease 2s;
+    }
+
+    @keyframes scaleIn {
+      0% {
+        transform: scale(0.5);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    footer {
+      background: linear-gradient(to right, #FF6B6B, #FF8E53);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+    }
+
+    .privacy-policy {
+      background-color: #313338;
+      padding: 20px;
+      border-radius: 10px;
+      color: #fff;
+    }
+
+    .animated-text {
+      font-family: 'Courier New', monospace;
+      animation: colorChange ease 5s infinite alternate;
+    }
+
+    @keyframes colorChange {
+      0% {
+        color: #fff;
+      }
+      100% {
+        color: #00ff00;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #555;
+    }
+    
+    
+   </style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const canvas = document.createElement("canvas");
+      document.body.appendChild(canvas);
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const particles = [];
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.radius = Math.random() * 1 + 0.5;
+          this.color = "rgba(255, 255, 255, 0.2)";
+          this.speedX = Math.random() * 1 - 0.5;
+          this.speedY = Math.random() * 2 + 1;
+        }
+
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+
+          if (this.y > canvas.height || this.y < 0) {
+            this.y = Math.random() * canvas.height;
+            this.x = Math.random() * canvas.width;
+          }
+
+          if (this.radius > 0.2) this.radius -= 0.1;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.fill();
+        }
+
+        drawLine(otherParticle) {
+          ctx.beginPath();
+          ctx.moveTo(this.x, this.y);
+          ctx.lineTo(otherParticle.x, otherParticle.y);
+          ctx.strokeStyle = this.color;
+          ctx.stroke();
+          ctx.closePath();
+        }
+      }
+
+      function createParticles() {
+        const particleCount = 100;
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function connectParticles() {
+        for (let a = 0; a < particles.length; a++) {
+          for (let b = a; b < particles.length; b++) {
+            const distance = Math.sqrt(
+              Math.pow(particles[a].x - particles[b].x, 2) +
+              Math.pow(particles[a].y - particles[b].y, 2)
+            );
+
+            if (distance < 100) {
+              particles[a].drawLine(particles[b]);
+            }
+          }
+        }
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+        }
+
+        connectParticles();
+
+        requestAnimationFrame(animateParticles);
+      }
+
+      window.addEventListener("resize", function () {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+
+      createParticles();
+      animateParticles();
+
+    });
+  </script></head>
+  
+<body>
+
+  <header>
+    <h1>Education Edition</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html#about">Информация</a></li>
+        <li><a href="index.html#projects">Про бота</a></li>
+        <li><a href="index.html#updates">Обновления</a></li>
+        <li><a href="index.html#team">Команда разработчиков</a></li>
+        <li><a href="index.html#contact">Дискорд</a></li>
+        <li><a href="index.html">Домой</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <main>
+
+      <main>
+
+        <section>
+          <h2>Использование бота</h2>
+          <p>Вы можете добавить бота "Education Edition" на свой Discord сервер для использования команд и функций, предоставляемых ботом, согласно их назначению.</p>
+        </section>
+
+        <section>
+          <h2>Ответственность</h2>
+          <p>Мы не несем ответственности за любые негативные последствия, связанные с использованием бота на вашем сервере. Вы несете полную ответственность за действия, связанные с ботом, на вашем сервере.</p>
+        </section>
+
+        <section>
+          <h2>Правила поведения</h2>
+          <p>При использовании бота "Education Edition", вы обязуетесь соблюдать правила поведения и нормы этикета на своем сервере. Запрещено использование бота для распространения ненормативного контента, оскорблений или нарушения прав других пользователей.</p>
+        </section>
+
+        <section>
+          <h2>Обновления</h2>
+          <p>Бот "Education Edition" может периодически обновляться для улучшения функциональности и исправления ошибок. Мы рекомендуем следить за обновлениями и применять их на вашем сервере.</p>
+        </section>
+
+        <section class="privacy-policy">
+          <h2 class="animated-text">Политика конфиденциальности</h2>
+          <p>Ваша конфиденциальность очень важна для нас. Эта политика конфиденциальности описывает все персональные данные, собираемые и обрабатываемые нашим проектом, а также другими нашими ресурсами.</p>
+          <p>Мы запрашиваем персональные данные только тогда, когда они действительно необходимы для предоставления заявленной функциональности. Мы собираем их честными и законными способами, с Вашего ведома и согласия. Собранные персональные данные могут использоваться для предоставления Вам услуг, улучшения наших услуг и связи с Вами. Мы не передаем данные третьим лицам, за исключением случаев, когда это требуется для предоставления Вам услуги, или законом.</p>
+          <p>Вы всегда можете отозвать свое согласие на обработку персональных данных. Вы также имеете право на доступ к своим данным и их исправление, а также право на удаление Ваших данных.</p>
+          <p>Если у Вас есть какие-либо вопросы или требования относительно нашей политики конфиденциальности, пожалуйста, свяжитесь с нами.</p>
+        </section>
+
+        
+
+
+</main></main><canvas width="1900" height="900"></canvas></body></html>
